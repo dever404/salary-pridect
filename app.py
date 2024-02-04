@@ -39,7 +39,7 @@ def main():
         st.success('Predicted Salary for Input Data : {}'.format( predicted_salary[0]))
 
     footer = """
-    <footer style="text-align:center;margin-top:20px"> Developer by : Abdelhakim ER-RAFAIY , Source code <a href="https://github.com/dever404/salary-pridect" target="_blank">GitHub</a></footer>
+    <footer style="text-align:center;margin-top:20px"> Developer by : ER-RAFAIY & BLKASMI , Source code <a href="https://github.com/dever404/salary-pridect" target="_blank">GitHub</a></footer>
     """
     st.markdown(footer, unsafe_allow_html = True)
 
