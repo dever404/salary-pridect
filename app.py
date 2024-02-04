@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st 
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import LabelEncoder
 
 def main(): 
     html_temp = """
@@ -28,14 +28,21 @@ def main():
 
         lm = LinearRegression()
 
-        ordinal_inco=OrdinalEncoder()
-        x_train=ordinal_inco.fit_transform(X)
-        x_test=ordinal_inco.fit_transform(input_data)
-        
-        lm.fit(x_train, y)
-        
-        predicted_salary = lm.predict(x_test)
+        encod_salary = X.select_dtypes(include=['object']).columns.tolist()
 
+        label_encoder = LabelEncoder()
+        for col in encod_salary:
+            X[col] = label_encoder.fit_transform(X[col])
+
+        encode_input = input_data.select_dtypes(include=['object']).columns.tolist()
+
+        label_encoder = LabelEncoder()
+        for col in encode_input:
+            input_data[col] = label_encoder.fit_transform(input_data[col])
+        
+        lm.fit(X, y)
+        
+        predicted_salary = lm.predict(input_data)
         st.success('Predicted Salary for Input Data : {}'.format( predicted_salary[0]))
 
     footer = """
