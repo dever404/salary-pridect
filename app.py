@@ -5,8 +5,9 @@ from sklearn.preprocessing import LabelEncoder
 
 def main(): 
     html_temp = """
-    <div style="background:#025246 ;padding:10px; margin-bottom:20px">
-    <h2 style="color:white;text-align:center;">Predictive jobs salary </h2>
+    <div style="padding:20px; margin-bottom:20px;text-align:center;">
+        <img style="text-align:center;margin-bottom:20px;" src="https://e-polytechnique.ma/landing/img/logo-polytechnique.png"/>
+        <h1 style="color:white;text-align:center;">Predictive jobs salary </h1>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html = True)
@@ -46,7 +47,11 @@ def main():
         st.success('Predicted Salary for Input Data : {}'.format( predicted_salary[0]))
 
     footer = """
-    <footer style="text-align:center;margin-top:20px"> Source code <a href="https://github.com/dever404/salary-pridect" target="_blank">GitHub</a></footer>
+        <footer style="text-align:center;margin-top:20px"> 
+            <p style="margin-bottom: 5px"> Developped by :</p>
+            <p> ER-RAFAIY , BELKACIM , ABOURAGBA</p>
+            Source code <a href="https://github.com/dever404/salary-pridect" target="_blank">GitHub</a> @ 2024
+        </footer>
     """
     st.markdown(footer, unsafe_allow_html = True)
 
